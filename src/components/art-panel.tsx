@@ -53,22 +53,25 @@ export function ArtPanel({
   label,
   eyebrow,
   icon,
-  rounded = "rounded-[2rem]",
+  // Sin `rounded` explícito, el panel usa el radio de la marca activa
+  // (--panel-radius en globals.css) — así Nova puede verse más recta que
+  // Lumina sin que este componente sepa nada de marcas.
+  rounded = "rounded-[var(--panel-radius)]",
   children,
 }: ArtPanelProps) {
   const styles = toneStyles[tone];
 
   return (
     <div
-      className={`relative overflow-hidden ${rounded} bg-gradient-to-br ${styles.base} ring-1 ${styles.ring} shadow-[0_30px_60px_-25px_rgba(42,36,32,0.35)] ${className}`}
+      className={`relative overflow-hidden ${rounded} bg-gradient-to-br ${styles.base} ring-1 ${styles.ring} shadow-[var(--panel-shadow)] ${className}`}
     >
       <div
         aria-hidden="true"
-        className={`absolute -top-[18%] -right-[14%] h-[55%] w-[55%] rounded-full ${styles.blobA} opacity-60 blur-3xl animate-blob`}
+        className={`absolute -top-[18%] -right-[14%] h-[55%] w-[55%] rounded-full ${styles.blobA} opacity-[var(--panel-blob-opacity-a)] blur-3xl animate-blob`}
       />
       <div
         aria-hidden="true"
-        className={`absolute -bottom-[22%] -left-[16%] h-[60%] w-[60%] rounded-full ${styles.blobB} opacity-40 blur-3xl animate-blob-slow`}
+        className={`absolute -bottom-[22%] -left-[16%] h-[60%] w-[60%] rounded-full ${styles.blobB} opacity-[var(--panel-blob-opacity-b)] blur-3xl animate-blob-slow`}
       />
       <div
         aria-hidden="true"
@@ -78,7 +81,10 @@ export function ArtPanel({
             "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
         }}
       />
-      <div aria-hidden="true" className="absolute inset-4 rounded-[1.6rem] border border-white/30" />
+      <div
+        aria-hidden="true"
+        className="absolute inset-4 rounded-[var(--panel-inner-radius)] border border-white/30"
+      />
 
       {icon ? (
         <div className="absolute left-6 top-6 flex h-11 w-11 items-center justify-center rounded-full bg-white/70 text-espresso backdrop-blur-sm sm:h-12 sm:w-12">

@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "dev:nova": "NEXT_PUBLIC_SITE_ID=nova next dev",
+    "build:nova": "NEXT_PUBLIC_SITE_ID=nova next build",
+    "start:nova": "NEXT_PUBLIC_SITE_ID=nova next start"
   },
   "dependencies": {
     "framer-motion": "^13.3.0",

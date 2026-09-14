@@ -7,13 +7,16 @@ import { SectionHeading } from "@/components/section-heading";
 import { ArtPanel } from "@/components/art-panel";
 import { DropletIcon, LeafIcon, SparkleIcon } from "@/components/icons";
 
-const filters: { label: string; value: GalleryItem["category"] | "todos" }[] = [
-  { label: "Todos", value: "todos" },
-  { label: "Facial", value: "facial" },
-  { label: "Corporal", value: "corporal" },
-  { label: "Depilación", value: "depilacion" },
-  { label: "Spa", value: "spa" },
-];
+// Orden canónico de categorías: se muestran solo las que existen en
+// siteConfig.gallery, en este orden. Así un cliente que no ofrece, por
+// ejemplo, tratamientos corporales, simplemente no ve ese filtro.
+const categoryOrder: GalleryItem["category"][] = ["facial", "corporal", "depilacion", "spa"];
+const categoryLabels: Record<GalleryItem["category"], string> = {
+  facial: "Facial",
+  corporal: "Corporal",
+  depilacion: "Depilación",
+  spa: "Spa",
+};
 
 const categoryIcon: Record<GalleryItem["category"], React.ReactNode> = {
   facial: <DropletIcon className="h-5 w-5" />,
@@ -23,6 +26,14 @@ const categoryIcon: Record<GalleryItem["category"], React.ReactNode> = {
 };
 
 export function Gallery() {
+  const presentCategories = categoryOrder.filter((category) =>
+    siteConfig.gallery.some((item) => item.category === category)
+  );
+  const filters: { label: string; value: GalleryItem["category"] | "todos" }[] = [
+    { label: "Todos", value: "todos" },
+    ...presentCategories.map((category) => ({ label: categoryLabels[category], value: category })),
+  ];
+
   const [active, setActive] = useState<(typeof filters)[number]["value"]>("todos");
 
   const items = siteConfig.gallery.filter((item) => active === "todos" || item.category === active);

@@ -55,8 +55,80 @@
   --art-ink-blob-b: #c98f80;
   --art-ink-ring: #e6d2ba;
 
+  /* Forma del ArtPanel cuando no recibe un `rounded` explícito (hero,
+     "nosotros", ubicación): permite que cada marca tenga bordes y sombra
+     con carácter propio (ej. Nova más recta/plana) sin tocar el componente. */
+  --panel-radius: 2rem;
+  --panel-inner-radius: 1.6rem;
+  --panel-shadow: 0 30px 60px -25px rgba(42, 36, 32, 0.35);
+  --panel-blob-opacity-a: 0.6;
+  --panel-blob-opacity-b: 0.4;
+
   --font-display: var(--font-playfair), "Playfair Display", Georgia, serif;
   --font-sans: var(--font-jost), "Jost", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Nova Beauty Studio: misma arquitectura de tokens, identidad propia.    */
+/* Se activa seteando <html data-brand="nova">, ver siteConfig.theme.id.  */
+/* ---------------------------------------------------------------------- */
+:root[data-brand="nova"] {
+  --color-warm-white: #ffffff;
+  --color-cream: #f7f6f4;
+  --color-beige: #ece9e5;
+  --color-nude: #dcd6cd;
+  --color-champagne: #cfc9c2;
+  --color-rose: #d9b9a0;
+  --color-rose-deep: #a8532e;
+  --color-ink: #17171a;
+  --color-ink-soft: #55524d;
+  --color-espresso: #2e2a28;
+
+  --art-champagne-from: #f5f4f2;
+  --art-champagne-via: #ece9e5;
+  --art-champagne-to: #ddd8d1;
+  --art-champagne-blob-a: #fbfaf8;
+  --art-champagne-blob-b: #c9c2b8;
+  --art-champagne-ring: #d8d2c8;
+
+  --art-rose-from: #e8d4c4;
+  --art-rose-via: #d9b9a0;
+  --art-rose-to: #c28a5f;
+  --art-rose-blob-a: #f3e6da;
+  --art-rose-blob-b: #a8532e;
+  --art-rose-ring: #c9a483;
+
+  --art-nude-from: #eeece8;
+  --art-nude-via: #ddd8d1;
+  --art-nude-to: #c9c2b8;
+  --art-nude-blob-a: #f7f5f2;
+  --art-nude-blob-b: #a89f92;
+  --art-nude-ring: #cec7bb;
+
+  --art-beige-from: #fafaf9;
+  --art-beige-via: #f2f0ed;
+  --art-beige-to: #e5e1da;
+  --art-beige-blob-a: #ffffff;
+  --art-beige-blob-b: #cec7bb;
+  --art-beige-ring: #ddd8d1;
+
+  --art-ink-from: #2e2a28;
+  --art-ink-via: #1f1c1a;
+  --art-ink-to: #131110;
+  --art-ink-blob-a: #4a443e;
+  --art-ink-blob-b: #a8532e;
+  --art-ink-ring: #3a3530;
+
+  /* Bordes y sombra más rectos y planos: estudio boutique minimalista
+     en vez del tratamiento suave/spa de Lumina. */
+  --panel-radius: 0.75rem;
+  --panel-inner-radius: 0.5rem;
+  --panel-shadow: 0 16px 32px -20px rgba(23, 23, 26, 0.18);
+  --panel-blob-opacity-a: 0.22;
+  --panel-blob-opacity-b: 0.16;
+
+  --font-display: var(--font-fraunces), "Fraunces", Georgia, serif;
+  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 @theme inline {

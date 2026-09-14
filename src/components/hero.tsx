@@ -27,15 +27,17 @@ export function Hero() {
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-rose-deep/25 bg-white/60 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.25em] text-rose-deep backdrop-blur-sm">
               <SparkleIcon className="h-3.5 w-3.5" />
-              Centro de estética en {siteConfig.business.city}
+              {siteConfig.business.categoryLabel} en {siteConfig.business.city}
             </span>
           </Reveal>
 
           <Reveal delay={0.08}>
             <h1 className="font-display text-4xl leading-[1.08] text-balance text-ink sm:text-5xl md:text-6xl lg:text-[3.75rem]">
-              Tu mejor versión
+              {siteConfig.business.heroHeadline.line1}
               <br />
-              <span className="italic text-rose-deep">empieza acá.</span>
+              <span className="italic text-rose-deep">
+                {siteConfig.business.heroHeadline.accentLine}
+              </span>
             </h1>
           </Reveal>
 
@@ -77,8 +79,8 @@ export function Hero() {
         <Reveal delay={0.2} className="relative">
           <ArtPanel
             tone="rose"
-            eyebrow="Ritual signature"
-            label="Piel luminosa, cuidado real"
+            eyebrow={siteConfig.business.heroVisual.eyebrow}
+            label={siteConfig.business.heroVisual.label}
             icon={<SparkleIcon className="h-5 w-5" />}
             className="aspect-[4/5] w-full sm:aspect-[5/6] lg:aspect-[4/5]"
           />

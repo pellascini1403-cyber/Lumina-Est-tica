@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Jost, Playfair_Display } from "next/font/google";
+import { Fraunces, Inter, Jost, Playfair_Display } from "next/font/google";
 import { siteConfig } from "@/config/site";
 import { palette } from "@/config/theme";
 import { Navbar } from "@/components/navbar";
@@ -7,6 +7,7 @@ import { Footer } from "@/components/footer";
 import { MobileStickyBar } from "@/components/mobile-sticky-bar";
 import "./globals.css";
 
+// Tipografías de Lumina (serif dramática + sans geométrica cálida).
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
@@ -16,6 +17,23 @@ const playfair = Playfair_Display({
 
 const jost = Jost({
   variable: "--font-jost",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+// Tipografías de Nova (serif contemporánea + sans neutra minimalista).
+// Ambos pares de fuentes se cargan siempre: next/font solo descarga en el
+// navegador la que realmente se use, según qué --font-display/--font-sans
+// resuelva el bloque [data-brand] activo en globals.css.
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
@@ -87,7 +105,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang={siteConfig.business.locale}
-      className={`${playfair.variable} ${jost.variable} h-full antialiased`}
+      data-brand={siteConfig.theme.id}
+      className={`${playfair.variable} ${jost.variable} ${fraunces.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-warm-white text-ink">
         <script

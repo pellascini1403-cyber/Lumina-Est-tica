@@ -15,9 +15,8 @@ export function Footer() {
               &ldquo;{siteConfig.business.slogan}&rdquo;
             </p>
             <p className="max-w-sm text-sm leading-relaxed">
-              Tratamientos faciales, corporales, depilación y bienestar en{" "}
-              {siteConfig.business.city}. Reservá tu turno y viví la experiencia{" "}
-              {siteConfig.business.displayName}.
+              {siteConfig.seo.titleSuffix} en {siteConfig.business.city}. Reservá tu turno y
+              viví la experiencia {siteConfig.business.displayName}.
             </p>
           </div>
 
