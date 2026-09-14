@@ -2,10 +2,10 @@ import { ImageResponse } from "next/og";
 import { siteConfig } from "@/config/site";
 import { palette } from "@/config/theme";
 
-export const size = { width: 180, height: 180 };
+export const size = { width: 64, height: 64 };
 export const contentType = "image/png";
 
-export default function AppleIcon() {
+export default function Icon() {
   return new ImageResponse(
     (
       <div
@@ -16,12 +16,12 @@ export default function AppleIcon() {
           alignItems: "center",
           justifyContent: "center",
           background: `linear-gradient(135deg, ${palette.logoGradientFrom} 0%, ${palette.logoGradientTo} 100%)`,
-          borderRadius: 40,
+          borderRadius: 18,
         }}
       >
         <span
           style={{
-            fontSize: 96,
+            fontSize: 34,
             fontStyle: "italic",
             fontFamily: "Georgia, serif",
             color: palette.ink,

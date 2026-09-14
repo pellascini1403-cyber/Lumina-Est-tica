@@ -2,14 +2,6 @@ import { siteConfig } from "@/config/site";
 import { buildWhatsappUrl, whatsappGenericMessage } from "@/lib/whatsapp";
 import { InstagramIcon, WhatsAppIcon } from "@/components/icons";
 
-const footerLinks = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Tratamientos", href: "#tratamientos" },
-  { label: "Nosotros", href: "#nosotros" },
-  { label: "Reservar turno", href: "#reservar" },
-  { label: "Contacto", href: "#contacto" },
-];
-
 export function Footer() {
   return (
     <footer className="bg-ink pb-28 pt-16 text-warm-white/70 sm:pb-16">
@@ -24,7 +16,8 @@ export function Footer() {
             </p>
             <p className="max-w-sm text-sm leading-relaxed">
               Tratamientos faciales, corporales, depilación y bienestar en{" "}
-              {siteConfig.business.city}. Reservá tu turno y viví la experiencia Lumina.
+              {siteConfig.business.city}. Reservá tu turno y viví la experiencia{" "}
+              {siteConfig.business.displayName}.
             </p>
           </div>
 
@@ -32,7 +25,7 @@ export function Footer() {
             <p className="text-sm font-medium uppercase tracking-[0.2em] text-warm-white">
               Navegación
             </p>
-            {footerLinks.map((link) => (
+            {siteConfig.footerNav.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
@@ -70,8 +63,14 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-8 text-xs text-warm-white/50 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 {siteConfig.business.name}. Todos los derechos reservados.</p>
-          <p>CUIT ficticio a fines demostrativos · {siteConfig.business.city}, {siteConfig.business.country}</p>
+          <p>
+            © {new Date().getFullYear()} {siteConfig.business.name}. Todos los derechos
+            reservados.
+          </p>
+          <p>
+            {siteConfig.business.legalNote ? `${siteConfig.business.legalNote} · ` : ""}
+            {siteConfig.business.city}, {siteConfig.business.country}
+          </p>
         </div>
       </div>
     </footer>

@@ -38,7 +38,7 @@ export function WhatsappBanner({
               href={buildWhatsappUrl(message)}
               target="_blank"
               rel="noopener noreferrer"
-              className="group mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-7 py-3.5 text-sm font-medium tracking-wide text-white shadow-[0_18px_35px_-15px_rgba(37,211,102,0.6)] transition-transform duration-300 hover:scale-[1.03]"
+              className="group mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-whatsapp px-7 py-3.5 text-sm font-medium tracking-wide text-white shadow-[0_18px_35px_-15px_rgba(37,211,102,0.6)] transition-transform duration-300 hover:scale-[1.03]"
             >
               <WhatsAppIcon className="h-4 w-4" />
               {buttonText}

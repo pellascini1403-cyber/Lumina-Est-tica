@@ -11,7 +11,7 @@ export function MobileStickyBar() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Hablar por WhatsApp"
-        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_10px_25px_-10px_rgba(37,211,102,0.7)]"
+        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-whatsapp text-white shadow-[0_10px_25px_-10px_rgba(37,211,102,0.7)]"
       >
         <WhatsAppIcon className="h-5 w-5" />
       </a>

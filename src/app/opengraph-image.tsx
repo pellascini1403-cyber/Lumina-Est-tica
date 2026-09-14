@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { siteConfig } from "@/config/site";
+import { palette } from "@/config/theme";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -16,7 +17,7 @@ export default function OpengraphImage() {
           alignItems: "flex-start",
           justifyContent: "center",
           padding: "90px",
-          background: "linear-gradient(135deg, #fbf7f2 0%, #f3e6cc 55%, #e3b8ac 100%)",
+          background: `linear-gradient(135deg, ${palette.warmWhite} 0%, ${palette.logoGradientFrom} 55%, ${palette.logoGradientVia} 100%)`,
           position: "relative",
         }}
       >
@@ -37,7 +38,7 @@ export default function OpengraphImage() {
             fontSize: 26,
             letterSpacing: 8,
             textTransform: "uppercase",
-            color: "#8a5b4a",
+            color: palette.accent,
             display: "flex",
           }}
         >
@@ -49,7 +50,7 @@ export default function OpengraphImage() {
             fontSize: 72,
             fontStyle: "italic",
             fontFamily: "Georgia, serif",
-            color: "#2a2420",
+            color: palette.ink,
             maxWidth: 900,
             display: "flex",
           }}
@@ -60,7 +61,7 @@ export default function OpengraphImage() {
           style={{
             marginTop: 28,
             fontSize: 28,
-            color: "#4a413a",
+            color: palette.inkSoft,
             maxWidth: 800,
             display: "flex",
           }}

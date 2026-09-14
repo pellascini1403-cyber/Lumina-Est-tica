@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Jost, Playfair_Display } from "next/font/google";
 import { siteConfig } from "@/config/site";
+import { palette } from "@/config/theme";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { MobileStickyBar } from "@/components/mobile-sticky-bar";
@@ -19,33 +20,28 @@ const jost = Jost({
   display: "swap",
 });
 
+const pageTitle = `${siteConfig.business.name} | ${siteConfig.seo.titleSuffix}`;
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.business.url),
   title: {
-    default: `${siteConfig.business.name} | Tratamientos faciales y corporales`,
+    default: pageTitle,
     template: `%s | ${siteConfig.business.name}`,
   },
   description: siteConfig.business.description,
-  keywords: [
-    "centro de estética",
-    "tratamientos faciales",
-    "tratamientos corporales",
-    "depilación definitiva",
-    "estética Buenos Aires",
-    "limpieza facial",
-  ],
+  keywords: [...siteConfig.seo.keywords],
   authors: [{ name: siteConfig.business.name }],
   openGraph: {
     type: "website",
-    locale: "es_AR",
+    locale: siteConfig.business.locale.replace("-", "_"),
     url: siteConfig.business.url,
     siteName: siteConfig.business.name,
-    title: `${siteConfig.business.name} | Tratamientos faciales y corporales`,
+    title: pageTitle,
     description: siteConfig.business.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.business.name} | Tratamientos faciales y corporales`,
+    title: pageTitle,
     description: siteConfig.business.description,
   },
   alternates: {
@@ -58,7 +54,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#fbf7f2",
+  themeColor: palette.warmWhite,
   width: "device-width",
   initialScale: 1,
 };
@@ -74,7 +70,7 @@ const jsonLd = {
     "@type": "PostalAddress",
     streetAddress: siteConfig.location.addressLine1,
     addressLocality: siteConfig.business.city,
-    addressCountry: "AR",
+    addressCountry: siteConfig.location.countryCode,
   },
   openingHoursSpecification: siteConfig.location.hours
     .filter((h) => h.time !== "Cerrado")
@@ -89,7 +85,10 @@ const jsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="es-AR" className={`${playfair.variable} ${jost.variable} h-full antialiased`}>
+    <html
+      lang={siteConfig.business.locale}
+      className={`${playfair.variable} ${jost.variable} h-full antialiased`}
+    >
       <body className="flex min-h-full flex-col bg-warm-white text-ink">
         <script
           type="application/ld+json"

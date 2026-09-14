@@ -12,6 +12,49 @@
   --color-ink-soft: #4a413a;
   --color-espresso: #6b4a37;
 
+  /* Verde de WhatsApp: color de marca fijo (no forma parte de la paleta del
+     negocio) que se mantiene igual sin importar qué cliente use esta base. */
+  --color-whatsapp: #25d366;
+  --color-whatsapp-ink: #1f9e51;
+
+  /* Tokens de arte abstracto (componente ArtPanel). Reemplazan la fotografía
+     mientras no haya imágenes reales del cliente: 3 tonos de degradé + 2
+     "blobs" + un color de borde por variante. Editables sin tocar componentes. */
+  --art-champagne-from: #f3e6cc;
+  --art-champagne-via: #eddbb8;
+  --art-champagne-to: #e3c99e;
+  --art-champagne-blob-a: #fbf1de;
+  --art-champagne-blob-b: #c9a877;
+  --art-champagne-ring: #d9c191;
+
+  --art-rose-from: #f4e2da;
+  --art-rose-via: #eccabd;
+  --art-rose-to: #dfaa9a;
+  --art-rose-blob-a: #fbeee8;
+  --art-rose-blob-b: #c98f80;
+  --art-rose-ring: #d9a291;
+
+  --art-nude-from: #f0e5d6;
+  --art-nude-via: #e5d3ba;
+  --art-nude-to: #d5bd9c;
+  --art-nude-blob-a: #f8f0e3;
+  --art-nude-blob-b: #b89876;
+  --art-nude-ring: #cdb28c;
+
+  --art-beige-from: #f6f1e8;
+  --art-beige-via: #eee3d0;
+  --art-beige-to: #e0cfb2;
+  --art-beige-blob-a: #fdfaf4;
+  --art-beige-blob-b: #c3ab84;
+  --art-beige-ring: #ddcba7;
+
+  --art-ink-from: #3a332c;
+  --art-ink-via: #2a2420;
+  --art-ink-to: #1c1815;
+  --art-ink-blob-a: #6b5c4c;
+  --art-ink-blob-b: #c98f80;
+  --art-ink-ring: #e6d2ba;
+
   --font-display: var(--font-playfair), "Playfair Display", Georgia, serif;
   --font-sans: var(--font-jost), "Jost", ui-sans-serif, system-ui, sans-serif;
 }
@@ -27,6 +70,8 @@
   --color-ink: var(--color-ink);
   --color-ink-soft: var(--color-ink-soft);
   --color-espresso: var(--color-espresso);
+  --color-whatsapp: var(--color-whatsapp);
+  --color-whatsapp-ink: var(--color-whatsapp-ink);
 
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);

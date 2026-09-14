@@ -30,10 +30,30 @@ export type GalleryItem = {
   tone: "champagne" | "rose" | "nude" | "beige";
 };
 
+export type Stat = {
+  // Id estable usado para referenciar una estadística puntual desde otras
+  // secciones (por ejemplo el hero) sin repetir el número a mano.
+  id: "experience" | "clients" | "recommend";
+  value: string;
+  label: string;
+};
+
+export type WhatsappCta = {
+  title: string;
+  subtitle: string;
+  message: string;
+  buttonText?: string;
+};
+
 export const siteConfig = {
   business: {
     name: "Lumina Estética",
+    // Nombre corto en mayúsculas para el isotipo de la navbar (se usa tal cual, sin transformar).
     shortName: "LUMINA",
+    // Nombre corto en formato natural, para usar dentro de oraciones (ej. "recomiendan Lumina").
+    displayName: "Lumina",
+    // Inicial usada en el favicon y el apple-icon generados dinámicamente.
+    monogram: "L",
     slogan: "Tu mejor versión empieza acá.",
     subSlogan:
       "Tratamientos personalizados, tecnología y profesionales que se enfocan en vos.",
@@ -42,6 +62,10 @@ export const siteConfig = {
     city: "Buenos Aires",
     country: "Argentina",
     url: "https://lumina-estetica.example.com",
+    // Idioma/región para el atributo lang del <html> y el locale de Open Graph.
+    locale: "es-AR",
+    // Texto legal opcional del footer. Dejar como "" para no mostrar la línea.
+    legalNote: "CUIT ficticio a fines demostrativos",
   },
   contact: {
     // Número ficticio en formato internacional sin "+" ni espacios (formato requerido por wa.me).
@@ -57,6 +81,8 @@ export const siteConfig = {
     addressLine2: "Buenos Aires, Argentina",
     neighborhood: "Recoleta",
     mapsQuery: "Av. Santa Fe 2450, Buenos Aires, Argentina",
+    // Código de país ISO 3166-1 alfa-2, usado en los datos estructurados (JSON-LD).
+    countryCode: "AR",
     hours: [
       { days: "Lunes a viernes", time: "9:00 – 20:00" },
       { days: "Sábados", time: "9:00 – 15:00" },
@@ -132,10 +158,10 @@ export const siteConfig = {
     },
   ] satisfies Treatment[],
   stats: [
-    { value: "+5", label: "años de experiencia" },
-    { value: "+2.000", label: "clientas" },
-    { value: "98%", label: "recomendarían Lumina" },
-  ],
+    { id: "experience", value: "+5", label: "años de experiencia" },
+    { id: "clients", value: "+2.000", label: "clientas" },
+    { id: "recommend", value: "98%", label: "recomendarían Lumina" },
+  ] satisfies Stat[],
   gallery: [
     { id: "g1", title: "Hidratación facial", category: "facial", tone: "champagne" },
     { id: "g2", title: "Piel luminosa", category: "facial", tone: "rose" },
@@ -208,6 +234,58 @@ export const siteConfig = {
         "Depende del tratamiento: entre 45 y 90 minutos aproximadamente. Te confirmamos la duración exacta al reservar tu turno.",
     },
   ] satisfies FaqItem[],
+  about: {
+    title: "Un espacio pensado para vos",
+    body: "En Lumina creemos que el cuidado personal no es un lujo: es un momento para vos. Trabajamos con tratamientos personalizados, profesionales capacitados y productos seleccionados para brindarte una experiencia que puedas disfrutar desde el primer momento.",
+  },
+  // Franjas horarias que se ofrecen en el select del formulario de reserva.
+  booking: {
+    timeSlots: [
+      "09:00 – 11:00",
+      "11:00 – 13:00",
+      "13:00 – 15:00",
+      "15:00 – 17:00",
+      "17:00 – 19:00",
+      "19:00 – 20:00",
+    ],
+  },
+  // Banners de WhatsApp que aparecen intercalados entre secciones (ver page.tsx).
+  ctas: {
+    chooseTreatment: {
+      title: "¿No sabés qué tratamiento elegir?",
+      subtitle:
+        "Contanos qué estás buscando y te recomendamos la mejor opción para vos.",
+      message:
+        "Hola Lumina Estética, no estoy segura de qué tratamiento elegir. ¿Me pueden ayudar a encontrar el ideal para mí?",
+    },
+    finalPush: {
+      title: "Tu próximo turno está a un mensaje de distancia",
+      subtitle:
+        "Escribinos ahora y coordinamos el día y horario que mejor te quede.",
+      message: "Hola Lumina Estética, quiero coordinar un turno.",
+      buttonText: "Coordinar por WhatsApp",
+    },
+  } satisfies Record<string, WhatsappCta>,
+  // Enlaces del footer (subconjunto curado de la navegación principal).
+  footerNav: [
+    { label: "Inicio", href: "#inicio" },
+    { label: "Tratamientos", href: "#tratamientos" },
+    { label: "Nosotros", href: "#nosotros" },
+    { label: "Reservar turno", href: "#reservar" },
+    { label: "Contacto", href: "#contacto" },
+  ],
+  seo: {
+    // Se combina con business.name para armar el <title> y el título de Open Graph/Twitter.
+    titleSuffix: "Tratamientos faciales y corporales",
+    keywords: [
+      "centro de estética",
+      "tratamientos faciales",
+      "tratamientos corporales",
+      "depilación definitiva",
+      "estética Buenos Aires",
+      "limpieza facial",
+    ],
+  },
 } as const;
 
 export type SiteConfig = typeof siteConfig;

@@ -5,6 +5,9 @@ import { ArtPanel } from "@/components/art-panel";
 import { Reveal } from "@/components/reveal";
 
 export function Hero() {
+  const clientsStat = siteConfig.stats.find((s) => s.id === "clients");
+  const recommendStat = siteConfig.stats.find((s) => s.id === "recommend");
+
   return (
     <section
       id="inicio"
@@ -65,7 +68,8 @@ export function Hero() {
               ))}
             </div>
             <p className="text-sm text-ink-soft">
-              <span className="font-medium text-ink">+2.000 clientas</span> confían en nosotras
+              <span className="font-medium text-ink">{clientsStat?.value} clientas</span> confían
+              en nosotras
             </p>
           </Reveal>
         </div>
@@ -79,9 +83,9 @@ export function Hero() {
             className="aspect-[4/5] w-full sm:aspect-[5/6] lg:aspect-[4/5]"
           />
           <div className="absolute -bottom-6 -left-4 hidden max-w-[13rem] rounded-2xl border border-ink/5 bg-white/90 p-4 shadow-[0_20px_40px_-20px_rgba(42,36,32,0.35)] backdrop-blur-sm sm:block">
-            <p className="font-display text-2xl italic text-ink">98%</p>
+            <p className="font-display text-2xl italic text-ink">{recommendStat?.value}</p>
             <p className="mt-0.5 text-xs leading-snug text-ink-soft">
-              de nuestras clientas recomiendan Lumina
+              de nuestras clientas recomiendan {siteConfig.business.displayName}
             </p>
           </div>
         </Reveal>
@@ -95,7 +99,7 @@ export function Hero() {
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 text-sm font-medium text-ink-soft transition-colors hover:text-ink"
           >
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#25D366]/15 text-[#1f9e51]">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-whatsapp/15 text-whatsapp-ink">
               <WhatsAppIcon className="h-4 w-4" />
             </span>
             ¿Tenés dudas? Escribinos por WhatsApp

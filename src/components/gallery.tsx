@@ -33,7 +33,7 @@ export function Gallery() {
         <SectionHeading
           eyebrow="Resultados"
           title="Resultados que hablan por sí solos"
-          subtitle="Una muestra de los tratamientos y protocolos que realizamos cada semana en Lumina."
+          subtitle={`Una muestra de los tratamientos y protocolos que realizamos cada semana en ${siteConfig.business.displayName}.`}
         />
 
         <div className="mt-10 flex flex-wrap justify-center gap-2.5">

@@ -31,9 +31,9 @@ export function About() {
           <div className="order-1 flex flex-col gap-8 lg:order-2">
             <SectionHeading
               eyebrow="Nosotros"
-              title="Un espacio pensado para vos"
+              title={siteConfig.about.title}
               align="left"
-              subtitle="En Lumina creemos que el cuidado personal no es un lujo: es un momento para vos. Trabajamos con tratamientos personalizados, profesionales capacitados y productos seleccionados para brindarte una experiencia que puedas disfrutar desde el primer momento."
+              subtitle={siteConfig.about.body}
             />
 
             <Reveal delay={0.1} className="grid grid-cols-3 gap-4 border-t border-ink/10 pt-8 sm:gap-6">

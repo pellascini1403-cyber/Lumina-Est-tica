@@ -1,3 +1,4 @@
+import { siteConfig } from "@/config/site";
 import { Hero } from "@/components/hero";
 import { Treatments } from "@/components/treatments";
 import { WhatsappBanner } from "@/components/whatsapp-banner";
@@ -14,22 +15,13 @@ export default function Home() {
     <>
       <Hero />
       <Treatments />
-      <WhatsappBanner
-        title="¿No sabés qué tratamiento elegir?"
-        subtitle="Contanos qué estás buscando y te recomendamos la mejor opción para vos."
-        message="Hola Lumina Estética, no estoy segura de qué tratamiento elegir. ¿Me pueden ayudar a encontrar el ideal para mí?"
-      />
+      <WhatsappBanner {...siteConfig.ctas.chooseTreatment} />
       <About />
       <Gallery />
       <Testimonials />
       <BookingForm />
       <Faq />
-      <WhatsappBanner
-        title="Tu próximo turno está a un mensaje de distancia"
-        subtitle="Escribinos ahora y coordinamos el día y horario que mejor te quede."
-        message="Hola Lumina Estética, quiero coordinar un turno."
-        buttonText="Coordinar por WhatsApp"
-      />
+      <WhatsappBanner {...siteConfig.ctas.finalPush} />
       <Location />
       <InstagramSection />
     </>

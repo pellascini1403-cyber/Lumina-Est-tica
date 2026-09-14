@@ -24,15 +24,6 @@ const initialState: FormState = {
   time: "",
 };
 
-const timeSlots = [
-  "09:00 – 11:00",
-  "11:00 – 13:00",
-  "13:00 – 15:00",
-  "15:00 – 17:00",
-  "17:00 – 19:00",
-  "19:00 – 20:00",
-];
-
 const inputCls =
   "w-full rounded-xl border bg-white px-4 py-3 text-[15px] text-ink placeholder:text-ink-soft/50 outline-none transition-colors duration-200 focus:border-ink";
 
@@ -226,7 +217,7 @@ export function BookingForm() {
                   className={`${inputCls} ${errors.time ? "border-rose-deep" : "border-ink/12"}`}
                 >
                   <option value="">Elegí un horario</option>
-                  {timeSlots.map((slot) => (
+                  {siteConfig.booking.timeSlots.map((slot) => (
                     <option key={slot} value={slot}>
                       {slot}
                     </option>

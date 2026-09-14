@@ -2,36 +2,38 @@ import type { ReactNode } from "react";
 
 type Tone = "champagne" | "rose" | "nude" | "beige" | "ink";
 
+// Los valores de color viven en src/app/globals.css (tokens --art-*) para que
+// quede todo centralizado ahí: cambiar la paleta no requiere tocar este archivo.
 const toneStyles: Record<Tone, { base: string; blobA: string; blobB: string; ring: string }> = {
   champagne: {
-    base: "from-[#f3e6cc] via-[#eddbb8] to-[#e3c99e]",
-    blobA: "bg-[#fbf1de]",
-    blobB: "bg-[#c9a877]",
-    ring: "ring-[#d9c191]/40",
+    base: "from-[var(--art-champagne-from)] via-[var(--art-champagne-via)] to-[var(--art-champagne-to)]",
+    blobA: "bg-[var(--art-champagne-blob-a)]",
+    blobB: "bg-[var(--art-champagne-blob-b)]",
+    ring: "ring-[var(--art-champagne-ring)]/40",
   },
   rose: {
-    base: "from-[#f4e2da] via-[#eccabd] to-[#dfaa9a]",
-    blobA: "bg-[#fbeee8]",
-    blobB: "bg-[#c98f80]",
-    ring: "ring-[#d9a291]/40",
+    base: "from-[var(--art-rose-from)] via-[var(--art-rose-via)] to-[var(--art-rose-to)]",
+    blobA: "bg-[var(--art-rose-blob-a)]",
+    blobB: "bg-[var(--art-rose-blob-b)]",
+    ring: "ring-[var(--art-rose-ring)]/40",
   },
   nude: {
-    base: "from-[#f0e5d6] via-[#e5d3ba] to-[#d5bd9c]",
-    blobA: "bg-[#f8f0e3]",
-    blobB: "bg-[#b89876]",
-    ring: "ring-[#cdb28c]/40",
+    base: "from-[var(--art-nude-from)] via-[var(--art-nude-via)] to-[var(--art-nude-to)]",
+    blobA: "bg-[var(--art-nude-blob-a)]",
+    blobB: "bg-[var(--art-nude-blob-b)]",
+    ring: "ring-[var(--art-nude-ring)]/40",
   },
   beige: {
-    base: "from-[#f6f1e8] via-[#eee3d0] to-[#e0cfb2]",
-    blobA: "bg-[#fdfaf4]",
-    blobB: "bg-[#c3ab84]",
-    ring: "ring-[#ddcba7]/40",
+    base: "from-[var(--art-beige-from)] via-[var(--art-beige-via)] to-[var(--art-beige-to)]",
+    blobA: "bg-[var(--art-beige-blob-a)]",
+    blobB: "bg-[var(--art-beige-blob-b)]",
+    ring: "ring-[var(--art-beige-ring)]/40",
   },
   ink: {
-    base: "from-[#3a332c] via-[#2a2420] to-[#1c1815]",
-    blobA: "bg-[#6b5c4c]",
-    blobB: "bg-[#c98f80]",
-    ring: "ring-[#e6d2ba]/20",
+    base: "from-[var(--art-ink-from)] via-[var(--art-ink-via)] to-[var(--art-ink-to)]",
+    blobA: "bg-[var(--art-ink-blob-a)]",
+    blobB: "bg-[var(--art-ink-blob-b)]",
+    ring: "ring-[var(--art-ink-ring)]/20",
   },
 };
 
