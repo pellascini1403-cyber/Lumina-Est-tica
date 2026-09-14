@@ -128,6 +128,31 @@ Con eso alcanza — no hace falta tocar ningún archivo de `src/components/`.
   theming vía `--panel-*`. Si un cliente necesita también tarjetas más
   chicas con otra forma, es la única parte que requeriría tocar componentes.
 
+### Decisiones de alcance (Nova)
+
+Dos cosas que quedaron deliberadamente afuera de este demo, para no tocar
+componentes compartidos ni sumar complejidad que no se necesitaba:
+
+- **Categorías "Cejas" / "Pestañas" como filtro propio**: los 4 servicios de
+  cejas/pestañas de Nova están categorizados como `"facial"` (son
+  tratamientos de esa zona del rostro), así que la galería muestra
+  exactamente "Todos / Facial / Depilación / Spa". Se puede agregar una
+  categoría nueva de forma limpia si hace falta: sumarla al union type
+  `category` en `src/config/types.ts`, y una entrada más en `categoryOrder`
+  / `categoryLabels` / `categoryIcon` de `src/components/gallery.tsx` (y al
+  mapa de `treatment-card.tsx` si también se quiere un ícono propio ahí).
+  No se hizo para este demo porque el filtro que pedía la consigna
+  (Todos/Facial/Depilación/Spa) ya sale así sin tocar nada.
+- **Campo de "mensaje opcional" en el formulario de reserva**: el
+  formulario (`booking-form.tsx`) es un componente compartido por todos los
+  clientes. Agregar un campo nuevo ahí cambiaría también el formulario de
+  Lumina, que hoy no lo tiene — se priorizó no modificar a Lumina sin
+  necesidad real de arquitectura. Si se termina necesitando, es un campo
+  más en `FormState` + un `<textarea>` opcional + agregarlo a
+  `whatsappBookingMessage()` en `src/lib/whatsapp.ts`; afectaría a ambos
+  clientes por igual (o se puede ocultar por config con un flag tipo
+  `booking.showMessageField`).
+
 ## Notas de implementación
 
 - **Colores**: viven en `src/app/globals.css` como variables CSS, una vez

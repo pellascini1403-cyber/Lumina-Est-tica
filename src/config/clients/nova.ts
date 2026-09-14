@@ -17,10 +17,10 @@ export const novaConfig = {
     categoryLabel: "Beauty Studio",
     slogan: "Belleza, cuidado y bienestar en un solo lugar.",
     subSlogan:
-      "Cejas, pestañas y piel: tratamientos de precisión en un estudio boutique pensado para vos.",
+      "Resultados visibles, atención personalizada y una experiencia premium pensada para realzar tu belleza natural.",
     heroHeadline: {
-      line1: "Belleza y cuidado,",
-      accentLine: "en un solo lugar.",
+      line1: "Tu belleza,",
+      accentLine: "elevada.",
     },
     heroVisual: {
       eyebrow: "Estudio boutique",
@@ -40,18 +40,18 @@ export const novaConfig = {
     whatsappDisplay: "+54 9 11 4455-6677",
     phoneDisplay: "(011) 4455-6677",
     email: "hola@novabeautystudio.com.ar",
-    instagramHandle: "@nova.beautystudio",
-    instagramUrl: "https://instagram.com/nova.beautystudio",
+    instagramHandle: "@novabeautystudio",
+    instagramUrl: "https://instagram.com/novabeautystudio",
   },
   location: {
-    addressLine1: "Av. Cabildo 1820",
+    addressLine1: "Av. Santa Fe 2850",
     addressLine2: "Buenos Aires, Argentina",
-    neighborhood: "Belgrano",
-    mapsQuery: "Av. Cabildo 1820, Buenos Aires, Argentina",
+    neighborhood: "Barrio Norte",
+    mapsQuery: "Av. Santa Fe 2850, Buenos Aires, Argentina",
     countryCode: "AR",
     hours: [
-      { days: "Lunes a viernes", time: "10:00 – 19:00" },
-      { days: "Sábados", time: "10:00 – 14:00" },
+      { days: "Lunes a viernes", time: "9:00 – 20:00" },
+      { days: "Sábados", time: "9:00 – 15:00" },
       { days: "Domingos", time: "Cerrado" },
     ],
   },
@@ -207,7 +207,7 @@ export const novaConfig = {
     {
       question: "¿Dónde están ubicados?",
       answer:
-        "Estamos en Av. Cabildo 1820, en el barrio de Belgrano, Buenos Aires.",
+        "Estamos en Av. Santa Fe 2850, en Barrio Norte, Buenos Aires.",
     },
     {
       question: "¿Cuánto dura cada sesión?",
@@ -221,11 +221,12 @@ export const novaConfig = {
   },
   booking: {
     timeSlots: [
-      "10:00 – 12:00",
-      "12:00 – 14:00",
-      "14:00 – 16:00",
-      "16:00 – 18:00",
-      "18:00 – 19:00",
+      "09:00 – 11:00",
+      "11:00 – 13:00",
+      "13:00 – 15:00",
+      "15:00 – 17:00",
+      "17:00 – 19:00",
+      "19:00 – 20:00",
     ],
   },
   ctas: {

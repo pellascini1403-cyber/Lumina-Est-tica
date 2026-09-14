@@ -119,13 +119,14 @@
   --art-ink-blob-b: #a8532e;
   --art-ink-ring: #3a3530;
 
-  /* Bordes y sombra más rectos y planos: estudio boutique minimalista
-     en vez del tratamiento suave/spa de Lumina. */
-  --panel-radius: 0.75rem;
-  --panel-inner-radius: 0.5rem;
-  --panel-shadow: 0 16px 32px -20px rgba(23, 23, 26, 0.18);
-  --panel-blob-opacity-a: 0.22;
-  --panel-blob-opacity-b: 0.16;
+  /* Bordes ligeramente más rectos que Lumina (2rem) y sombra más plana:
+     sensación de estudio boutique minimalista en vez del tratamiento
+     suave/spa de Lumina, sin perder la calidez de las esquinas redondeadas. */
+  --panel-radius: 1.25rem;
+  --panel-inner-radius: 0.9rem;
+  --panel-shadow: 0 20px 40px -22px rgba(23, 23, 26, 0.2);
+  --panel-blob-opacity-a: 0.25;
+  --panel-blob-opacity-b: 0.18;
 
   --font-display: var(--font-fraunces), "Fraunces", Georgia, serif;
   --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
