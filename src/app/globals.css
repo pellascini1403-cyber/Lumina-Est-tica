@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+:root {
+  --color-warm-white: #fbf7f2;
+  --color-cream: #f6efe6;
+  --color-beige: #efe3d3;
+  --color-nude: #e6d2ba;
+  --color-champagne: #ddc8a0;
+  --color-rose: #e3b8ac;
+  --color-rose-deep: #c98f80;
+  --color-ink: #2a2420;
+  --color-ink-soft: #4a413a;
+  --color-espresso: #6b4a37;
+
+  --font-display: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-sans: var(--font-jost), "Jost", ui-sans-serif, system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-warm-white: var(--color-warm-white);
+  --color-cream: var(--color-cream);
+  --color-beige: var(--color-beige);
+  --color-nude: var(--color-nude);
+  --color-champagne: var(--color-champagne);
+  --color-rose: var(--color-rose);
+  --color-rose-deep: var(--color-rose-deep);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-espresso: var(--color-espresso);
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+
+  --animate-fade-up: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  --animate-blob: blob-float 14s ease-in-out infinite;
+  --animate-blob-slow: blob-float 20s ease-in-out infinite reverse;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes blob-float {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(3%, -4%) scale(1.05);
+    }
+    66% {
+      transform: translate(-3%, 3%) scale(0.97);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-warm-white);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+* {
+  scrollbar-color: var(--color-rose-deep) transparent;
+}
+
+::selection {
+  background: var(--color-rose);
+  color: var(--color-ink);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
